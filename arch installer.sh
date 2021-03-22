@@ -3,11 +3,10 @@ ls /sys/firmware/efi/efivars
 wifi-menu
 timedatectl set-ntp true
 timedatectl set-timezone Europe/Oslo
-fdisk -l
-echo "Run cfdisk /dev/sdX"
 echo "Make /dev/sda1 - 512M EFI System"
 echo "Make /dev/sda2 - xG Linux swap"
 echo "Make /dev/sda3 - xG Linux Filesystem"
+cfdisk /dev/sda
 
 mkfs.ext4 /dev/sda3
 mount /dev/sda3 /mnt
